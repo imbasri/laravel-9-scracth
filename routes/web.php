@@ -16,3 +16,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/greeting', function () {
+    return "Hello World";
+})->name('greeting');
+
+// get params from url 
+Route::get('/greeting/{params}', function ($params) {
+    return 'Hello ' . $params;
+})->name('greeting_with_params');
