@@ -23,5 +23,5 @@ Route::get('/greeting', function () {
 
 // get params from url 
 Route::get('/greeting/{params}', function ($params) {
-    return 'Hello ' . $params;
-})->name('greeting_with_params');
+    return view('example', ['params' => $params]);
+});
