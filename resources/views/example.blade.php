@@ -9,16 +9,8 @@
 </head>
 
 <body>
-    @if ($params == 'world')
-        <h1>Hello World</h1>
-    @else
-        <h1>Hello {{ $params }}</h1>
-    @endif
 
-    {{-- testing loop --}}
-    @for ($i = 0; $i < 10; $i++)
-        The current value is {{ $i }} <br>
-    @endfor
+    <h1>Hello {{ $name }}</h1>
 
 </body>
 

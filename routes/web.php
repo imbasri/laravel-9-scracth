@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,11 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/greeting', function () {
-    return "Hello World";
-})->name('greeting');
-
-// get params from url 
-Route::get('/greeting/{params}', function ($params) {
-    return view('example', ['params' => $params]);
-});
+// ambil data dari controller
+Route::get('/greeting/{id}',[StudentController::class,'show']);
