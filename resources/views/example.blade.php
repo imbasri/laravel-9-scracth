@@ -10,9 +10,16 @@
 
 <body>
 
-    <h1>Your students:</h1>
-    @foreach ($students as $student)
-        <p>{{ $student->name }}</p>
+    <h1>Your Activity:</h1>
+    @foreach ($activity as $active)
+        <p>{{ $active->name }}</p>
+    @endforeach
+
+    <p>many to many</p>
+    {{ $students }}
+
+    @foreach ($activity as $active)
+        <p>{{ $active->name }}</p>
     @endforeach
 </body>
 
