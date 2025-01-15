@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\Teacher;
 
 class StudentController extends Controller
 {
     //
     public function show($id)
     {
-        $address = Student::find($id)->contact->address;
-
-        return view('example', ['name' => $address]);
+        $students = Teacher::find($id)->students;
+        return view('example', ['students' => $students]);
     }
 }

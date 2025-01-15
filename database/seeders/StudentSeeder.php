@@ -16,9 +16,9 @@ class StudentSeeder extends Seeder
     public function run()
     {
         $data = [
-            ['id' => 1, 'name' => 'Yusuf', 'score' => 80],
-            ['id' => 2, 'name' => 'Danang', 'score' => 88],
-            ['id' => 3, 'name' => 'Wahyu', 'score' => 71],
+            ['id' => 1, 'name' => 'Yusuf', 'score' => 80,'teacher_id' => 1],
+            ['id' => 2, 'name' => 'Danang', 'score' => 88,'teacher_id' => 1],
+            ['id' => 3, 'name' => 'Wahyu', 'score' => 71,'teacher_id' => 1],
         ];
         //insert Database Seeder
         DB::table('students')->insert($data);

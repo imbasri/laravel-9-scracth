@@ -10,8 +10,10 @@
 
 <body>
 
-    <h1>Hello {{ $name }}</h1>
-
+    <h1>Your students:</h1>
+    @foreach ($students as $student)
+        <p>{{ $student->name }}</p>
+    @endforeach
 </body>
 
 </html>
