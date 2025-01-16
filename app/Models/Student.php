@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     use HasFactory;
+    // berikan fillable agar data dapat dirubah/ditambah
+    protected $fillable = [
+        'name',
+        'score',
+        'teacher_id',
+    ];
 
     public function contact()
     {

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // getall
-Route::get('/', [StudentController::class, 'index']);
+Route::get('/index', [StudentController::class, 'index'])->name('index');
 // ambil data dari controller
 Route::get('/show', [StudentController::class, 'index']);
 // show detail
@@ -25,3 +25,9 @@ Route::get('/show/{id}', [StudentController::class, 'show'])->name('show');
 Route::get('/filter', [StudentController::class, 'filter']);
 // get all data
 Route::get('/greeting', [StudentController::class, 'index']);
+
+// create
+Route::get('/create', [StudentController::class, 'create'])->name('create');
+
+// store
+Route::post('/create', [StudentController::class, 'store'])->name('store');

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use App\Models\Student;
 use App\Models\Teacher;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class StudentController extends Controller
 {
@@ -28,5 +30,27 @@ class StudentController extends Controller
         $students = Student::find($id);
         // dd($students);
         return view('show', ['students' => $students]);
+    }
+    // create data
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store(Request $request)
+    {
+        // validate
+        // dd($request->all());
+        $request->validate([
+            'name' => 'required',
+            'score' => 'required',
+        ]);
+
+        Student::create([
+            'name' => $request->name,
+            "score" => 80,
+            'teacher_id' => 1
+        ]);
+        return Redirect::route('index')->with('success', 'Data Berhasil Ditambahkan');
     }
 }
