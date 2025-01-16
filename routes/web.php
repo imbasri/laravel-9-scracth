@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [StudentController::class, 'index']);
+
+// get all data
+Route::get('/greeting',[StudentController::class,'index']);
 
 // ambil data dari controller
 Route::get('/greeting/{id}',[StudentController::class,'show']);

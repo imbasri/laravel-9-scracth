@@ -8,7 +8,14 @@ use App\Models\Teacher;
 
 class StudentController extends Controller
 {
-    //
+    // show all data
+    public function index()
+    {
+        $students = Student::all();
+        return view('index',['data' => $students]);
+    }
+
+
     public function show($id)
     {
         $students = Student::find($id);
