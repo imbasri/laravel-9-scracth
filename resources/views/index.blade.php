@@ -19,7 +19,9 @@
         @foreach ($data as $d)
             <tr>
                 <td>{{ $d->id }}</td>
-                <td>{{ $d->name }}</td>
+                <td>
+                    <a href="{{ route('show', $d->id) }}">{{ $d->name }}</a>
+                </td>
                 <td>{{ $d->score }}</td>
             </tr>
         @endforeach
