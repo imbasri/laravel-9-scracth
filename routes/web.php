@@ -14,10 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// getall
 Route::get('/', [StudentController::class, 'index']);
-
+// filter
+Route::get('/filter', [StudentController::class, 'filter']);
 // get all data
 Route::get('/greeting',[StudentController::class,'index']);
-
 // ambil data dari controller
 Route::get('/greeting/{id}',[StudentController::class,'show']);
