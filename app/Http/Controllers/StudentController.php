@@ -53,4 +53,18 @@ class StudentController extends Controller
         ]);
         return Redirect::route('index')->with('success', 'Data Berhasil Ditambahkan');
     }
+    // edit
+    public function edit(Student $student)
+    {
+        return view('edit', compact('student'));
+    }
+    // update
+    public function update(Request $request, Student $student)
+    {
+        $student->update([
+            'name' => $request->name,
+            'score' => $request->score,
+        ]);
+        return Redirect::route('show', $student->id)->with('success', 'Data Berhasil Diupdate');
+    }
 }

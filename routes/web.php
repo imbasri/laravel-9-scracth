@@ -31,3 +31,8 @@ Route::get('/create', [StudentController::class, 'create'])->name('create');
 
 // store
 Route::post('/create', [StudentController::class, 'store'])->name('store');
+
+// edit
+Route::get('/edit/{student}',[StudentController::class, 'edit'])->name('edit');
+// edit
+Route::patch('/update/{student}',[StudentController::class, 'update'])->name('update');

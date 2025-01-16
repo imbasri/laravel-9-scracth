@@ -15,6 +15,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Score</th>
+            <th>Action</th>
         </tr>
         @foreach ($data as $d)
             <tr>
@@ -23,6 +24,12 @@
                     <a href="{{ route('show', $d->id) }}">{{ $d->name }}</a>
                 </td>
                 <td>{{ $d->score }}</td>
+                <td>
+                    <form action="{{ route('edit', $d) }}" method="get">
+                        @csrf
+                        <button type="submit">Edit</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>
@@ -33,6 +40,7 @@
 
     Pagination : {{ $data->links('pagination::bootstrap-4') }}
 
+    <p><a href="/create">Create</a></p>
     <p><a href="/create">Create</a></p>
 </body>
 
