@@ -29,21 +29,24 @@ Route::get('/filter', [StudentController::class, 'filter']);
 // get all data
 Route::get('/greeting', [StudentController::class, 'index']);
 
-// create
-Route::get('/create', [StudentController::class, 'create'])->name('create');
 
-// store
-Route::post('/create', [StudentController::class, 'store'])->name('store');
 
-// edit
-Route::get('/edit/{student}',[StudentController::class, 'edit'])->name('edit');
-// edit
-Route::patch('/update/{student}',[StudentController::class, 'update'])->name('update');
-// delete
-Route::delete('/delete/{student}',[StudentController::class,'delete'])->name('delete');
-Route::get('/update_password',[HomeController::class,'update_password'])->name('update_password');
-Route::patch('/update_password',[HomeController::class,'store_password'])->name('store_password');
+Route::get('/update_password', [HomeController::class, 'update_password'])->name('update_password');
+Route::patch('/update_password', [HomeController::class, 'store_password'])->name('store_password');
+
+// protect only admin
+Route::middleware(['admin'])->group(function () {
+    // create
+    Route::get('/create', [StudentController::class, 'create'])->name('create');
+    // store
+    Route::post('/create', [StudentController::class, 'store'])->name('store');
+    // edit
+    Route::get('/edit/{student}', [StudentController::class, 'edit'])->name('edit');
+    // edit
+    Route::patch('/update/{student}', [StudentController::class, 'update'])->name('update');
+    // delete
+    Route::delete('/delete/{student}', [StudentController::class, 'delete'])->name('delete');
+});
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-

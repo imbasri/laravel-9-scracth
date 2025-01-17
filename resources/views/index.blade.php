@@ -15,8 +15,8 @@
 <body>
     {{-- check login --}}
     @if (Auth::check())
-    <p>User login : {{ $user->name }} -   {{ $ids }}</p>
-    {{-- {{ dd($user) }} --}}
+        <p>User login : {{ $user->name }} - {{ $ids }}</p>
+        {{-- {{ dd($user) }} --}}
 
         <form action="{{ route('logout') }}" method="post">
             @csrf
@@ -68,7 +68,7 @@
     Pagination : {{ $data->links('pagination::bootstrap-4') }}
 
     <p><a href="/create">Create</a></p>
-    Role :  {{$user->role }}
+    Role : {{ Auth::check() ? $user->role : '' }}
 </body>
 
 </html>
