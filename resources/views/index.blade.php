@@ -15,6 +15,9 @@
 <body>
     {{-- check login --}}
     @if (Auth::check())
+    <p>User login : {{ $user->name }} -   {{ $ids }}</p>
+    {{-- {{ dd($user) }} --}}
+
         <form action="{{ route('logout') }}" method="post">
             @csrf
             <button type="submit">Logout</button>
@@ -23,6 +26,9 @@
         <a class="me-2" href="{{ route('login') }}">Login</a>
         <a href="{{ route('register') }}">Register</a>
     @endif
+
+    {{-- check user dari route --}}
+
 
     <table border="1">
         <tr>

@@ -6,6 +6,7 @@ use App\Models\Activity;
 use App\Models\Student;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class StudentController extends Controller
@@ -13,8 +14,10 @@ class StudentController extends Controller
     // show all data
     public function index()
     {
+        $user = Auth::user();
+        $id = Auth::id();
         $students = Student::paginate(2);
-        return view('index', ['data' => $students]);
+        return view('index', ['data' => $students, 'user' => $user, 'ids' => $id]);
     }
 
     public function filter()
@@ -67,7 +70,7 @@ class StudentController extends Controller
         ]);
         return Redirect::route('show', $student->id)->with('success', 'Data Berhasil Diupdate');
     }
-// delete
+    // delete
     public function delete(Student $student)
     {
         $student->delete();
