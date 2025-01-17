@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer("score");
             // foreign key from teachers
-            $table->foreignId('teacher_id')->constrained('teachers');
+            $table->foreignId('teacher_id')->constrained('teachers')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

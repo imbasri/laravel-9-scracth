@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('email');
             // foreign key from students
-            $table->foreignId('student_id')->constrained('students');
+            $table->foreignId('student_id')->constrained('students')->cascadeOnUpdate()->cascadeOnDelete();
             $table->timestamps();
         });
     }

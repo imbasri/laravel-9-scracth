@@ -67,4 +67,10 @@ class StudentController extends Controller
         ]);
         return Redirect::route('show', $student->id)->with('success', 'Data Berhasil Diupdate');
     }
+// delete
+    public function delete(Student $student)
+    {
+        $student->delete();
+        return Redirect::route('index')->with('success', 'Data Berhasil Dihapus');
+    }
 }

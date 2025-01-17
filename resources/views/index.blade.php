@@ -30,6 +30,13 @@
                         <button type="submit">Edit</button>
                     </form>
                 </td>
+                <td>
+                    <form action="{{ route('delete', $d) }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         @endforeach
     </table>
@@ -40,7 +47,6 @@
 
     Pagination : {{ $data->links('pagination::bootstrap-4') }}
 
-    <p><a href="/create">Create</a></p>
     <p><a href="/create">Create</a></p>
 </body>
 
