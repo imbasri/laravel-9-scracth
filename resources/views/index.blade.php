@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <h1>{{ __('message.welcome') }}</h1>
     <p>Locale : {{ App::getLocale() }}</p>
     <a href="{{ route('set_locale', 'en') }}">Inggris</a>
     <a href="{{ route('set_locale', 'id') }}">Indonesia</a>
