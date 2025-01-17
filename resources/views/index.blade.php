@@ -68,6 +68,7 @@
     Pagination : {{ $data->links('pagination::bootstrap-4') }}
 
     <p><a href="/create">Create</a></p>
+    Role :  {{$user->role }}
 </body>
 
 </html>
