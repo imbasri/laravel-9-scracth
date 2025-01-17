@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,8 +41,9 @@ Route::get('/edit/{student}',[StudentController::class, 'edit'])->name('edit');
 Route::patch('/update/{student}',[StudentController::class, 'update'])->name('update');
 // delete
 Route::delete('/delete/{student}',[StudentController::class,'delete'])->name('delete');
-
+Route::get('/update_password',[HomeController::class,'update_password'])->name('update_password');
+Route::patch('/update_password',[HomeController::class,'store_password'])->name('store_password');
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
