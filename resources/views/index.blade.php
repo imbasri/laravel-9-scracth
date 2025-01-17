@@ -13,6 +13,10 @@
 </head>
 
 <body>
+    <p>Locale : {{ App::getLocale() }}</p>
+    <a href="{{ route('set_locale', 'en') }}">Inggris</a>
+    <a href="{{ route('set_locale', 'id') }}">Indonesia</a>
+
     {{-- check login --}}
     @if (Auth::check())
         <p>User login : {{ $user->name }} - {{ $ids }}</p>
