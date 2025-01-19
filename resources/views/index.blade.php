@@ -14,6 +14,7 @@
 
 <body>
     <h1>{{ __('message.welcome') }}</h1>
+    <h1>{{ __('welcome to this page!') }}</h1>
     <p>Locale : {{ App::getLocale() }}</p>
     <a href="{{ route('set_locale', 'en') }}">Inggris</a>
     <a href="{{ route('set_locale', 'id') }}">Indonesia</a>
