@@ -49,4 +49,22 @@ class PictureController extends Controller
         // redirect
         return Redirect::route('picture.create');
     }
+    // copy
+    public function copy(Picture $picture)
+    {
+        Storage::copy('public/' . $picture->path, 'copy/' . $picture->path);
+        return Redirect::route('picture.create');
+    }
+    // move
+    public function move(Picture $picture, Request $request)
+    {
+        if ($request->has('rollback')) {
+            Storage::move('backup/' . $picture->path, 'public/' . $picture->path);
+            return Redirect::route('picture.show', $picture->id);
+        } else {
+
+            Storage::move('public/' . $picture->path, 'backup/' . $picture->path);
+            return Redirect::route('picture.create');
+        }
+    }
 }

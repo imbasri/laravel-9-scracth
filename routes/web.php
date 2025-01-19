@@ -66,3 +66,8 @@ Route::get('/picture/{picture}', [PictureController::class, 'show'])->name('pict
 // delete
 Route::delete('/picture/{picture}', [PictureController::class, 'delete'])->name('picture.delete');
 
+// copy
+Route::get('/copy/{picture}', [PictureController::class, 'copy'])->name('picture.copy');
+
+// move
+Route::get('/move/{picture}', [PictureController::class, 'move'])->name('picture.move');
