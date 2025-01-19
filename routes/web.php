@@ -59,4 +59,10 @@ Route::get('/locale/{set_locale}', [LocaleController::class, 'set_locale'])->nam
 
 // storage
 Route::get('/picture/create', [PictureController::class, 'create'])->name('picture.create');
+
 Route::post('/picture/create', [PictureController::class, 'store'])->name('picture.store');
+// show picture
+Route::get('/picture/{picture}', [PictureController::class, 'show'])->name('picture.show');
+// delete
+Route::delete('/picture/{picture}', [PictureController::class, 'delete'])->name('picture.delete');
+

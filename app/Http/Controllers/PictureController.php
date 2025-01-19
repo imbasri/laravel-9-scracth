@@ -32,4 +32,21 @@ class PictureController extends Controller
 
         return Redirect::route('picture.create')->with('success', 'Data Berhasil Ditambahkan');
     }
+
+    public function show(Picture $picture)
+    {
+        $url = Storage::url($picture->path);
+        return view('show_picture', compact('url', 'picture'));
+    }
+
+    public function delete(Picture $picture)
+    {
+        // delete in storage
+        Storage::delete('public/' . $picture->path);
+        // delete in database
+        $picture->delete();
+
+        // redirect
+        return Redirect::route('picture.create');
+    }
 }
